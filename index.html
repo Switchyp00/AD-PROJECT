@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIEMCITY | AD + Splunk Project</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #33ff33;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #111;
+      border-bottom: 2px solid #33ff33;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #66ff66;
+    }
+    .screenshot {
+      background-color: #111;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #33ff33;
+    }
+    .btn {
+      background-color: #33ff33;
+      color: #0d0d0d;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #111;
+      color: #33ff33;
+      text-align: center;
+      padding: 10px;
+      border-top: 2px solid #33ff33;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #33ff33;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .screenshot img {
+      max-width: 100%;
+      height: auto;
+      image-rendering: pixelated; /* For sharp edges */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛡️AD + Splunk Project</h1>
+    <p>Phase 1 – Employer Preview Portal</p>
+  </header>
+
+  <section>
+    <h2>🔍 Project Summary</h2>
+    <p>
+      This project simulates a basic SOC lab using Active Directory and Splunk. It involves deploying three VMs (DC1, Client1, and SplunkServer) and configuring AD, domain join, GPOs, and log forwarding via Splunk Universal Forwarder.
+    </p>
+
+    <h2>📊 Lab Architecture</h2>
+    <img src="images/network-diagram.png" alt="Lab Network Diagram" style="width:100%; max-width:800px;" />
+
+    <h2>📸 Screenshots</h2>
+    <div class="screenshot">
+      <p><strong>Figure 1:</strong> VirtualBox Configuration for DC1</p>
+      <img src="screenshots/Figure1.png" style="width:100%;" alt="Figure 1" />
+      <p>VirtualBox configuration for DC1, showing 2 GB RAM and Internal Network (LabNetwork). This setup ensures DC1 can communicate with other VMs in the lab network.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 2:</strong> VirtualBox Configuration for Client1</p>
+      <img src="screenshots/Figure2.png" style="width:100%;" alt="Figure 2" />
+      <p>VirtualBox configuration for Client1, showing 2 GB RAM and Internal Network (LabNetwork). Client1 is configured to join the soclab.local domain.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 3:</strong> VirtualBox Configuration for SplunkServer</p>
+      <img src="screenshots/Figure3.png" style="width:100%;" alt="Figure 3" />
+      <p>VirtualBox configuration for SplunkServer, showing 2 GB RAM, Bridged Adapter, and Internal Network (LabNetwork). The Bridged Adapter allows external access to the Splunk web interface.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 4:</strong> Installing Active Directory Domain Services (AD DS) on DC1</p>
+      <img src="screenshots/Figure4.png" style="width:100%;" alt="Figure 4" />
+      <p>Installing Active Directory Domain Services (AD DS) on DC1 using the Add Roles and Features Wizard. This is the first step in promoting DC1 to a domain controller.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 5:</strong> DNS Forward Lookup Zone on DC1</p>
+      <img src="screenshots/Figure5.png" style="width:100%;" alt="Figure 5" />
+      <p>DNS forward lookup zone for soclab.local on DC1, showing records for dc1 and client1. This ensures proper name resolution within the domain.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 6:</strong> DNS Reverse Lookup Zone on DC1</p>
+      <img src="screenshots/Figure6.png" style="width:100%;" alt="Figure 6" />
+      <p>DNS reverse lookup zone for 192.168.1.0/24 on DC1, showing PTR records for dc1 and client1. This enables reverse DNS lookups for IP addresses in the lab network.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 7:</strong> User Creation in ADUC on DC1</p>
+      <img src="screenshots/Figure7.png" style="width:100%;" alt="Figure 7" />
+      <p>User TestUser created in Active Directory Users and Computers (ADUC) on DC1 under the soclab.local domain. This user will be used for testing domain functionality.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 8:</strong> Client1 Joined to the Domain</p>
+      <img src="screenshots/Figure8.png" style="width:100%;" alt="Figure 8" />
+      <p>Client1 joined to the soclab.local domain, as shown in System Properties. This confirms that Client1 is now part of the AD domain.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 9:</strong> Applying GPOs on Client1</p>
+      <img src="screenshots/Figure9.png" style="width:100%;" alt="Figure 9" />
+      <p>Applying Group Policy Objects (GPOs) on Client1 using the gpupdate /force command. This ensures that domain policies are applied to the client.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 10:</strong> Accessing Shared Folders from Client1</p>
+      <img src="screenshots/Figure10.png" style="width:100%;" alt="Figure 10" />
+      <p>Client1 accessing shared folders on DC1 using the net view \\dc1 command, showing the SharedData folder. This verifies network connectivity and share visibility.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 11:</strong> Verifying Shared Folder Access from Client1</p>
+      <img src="screenshots/Figure11.png" style="width:100%;" alt="Figure 11" />
+      <p>Client1 accessing the SharedData folder on DC1, showing the TestFile.txt file. This confirms that the shared folder is accessible and functional.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 12:</strong> Configuring inputs.conf on DC1</p>
+      <img src="screenshots/Figure12.png" style="width:100%;" alt="Figure 12" />
+      <p>Configuring inputs.conf on DC1 to monitor Windows Security logs for Splunk Universal Forwarder. This enables log forwarding to SplunkServer.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 13:</strong> Configuring inputs.conf on Client1</p>
+      <img src="screenshots/Figure13.png" style="width:100%;" alt="Figure 13" />
+      <p>Configuring inputs.conf on Client1 to monitor Windows Security logs for Splunk Universal Forwarder. This ensures Client1’s logs are sent to SplunkServer.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 14:</strong> Configuring SplunkServer to Receive Logs</p>
+      <img src="screenshots/Figure14.png" style="width:100%;" alt="Figure 14" />
+      <p>Configuring Splunk on SplunkServer to receive logs from DC1 and Client1 on port 9997. This sets up the Splunk instance to collect forwarded logs.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 15a:</strong> Disk Space Usage on SplunkServer (Before)</p>
+      <img src="screenshots/Figure15a.png" style="width:100%;" alt="Figure 15a" />
+      <p>Disk space usage on SplunkServer before simulating a disk space issue, showing /dev/sda3 at 67% usage. This is the baseline disk usage.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 15b:</strong> Disk Space Usage on SplunkServer (After)</p>
+      <img src="screenshots/Figure15b.png" style="width:100%;" alt="Figure 15b" />
+      <p>Disk space usage on SplunkServer after simulating a disk space issue, showing /dev/sda3 at 85% usage. This demonstrates a potential disk space concern.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 17:</strong> Splunk Search on SplunkServer</p>
+      <img src="screenshots/Figure17.png" style="width:100%;" alt="Figure 17" />
+      <p>Splunk search on SplunkServer (sourcetype="WinEventLog:Security") showing Security logs from DC1 and Client1. This confirms successful log collection and monitoring.</p>
+    </div>
+
+    <h2>🧰 Tools & Technologies</h2>
+    <ul>
+      <li>Windows Server 2019</li>
+      <li>Windows 10</li>
+      <li>Ubuntu Server 22.04</li>
+      <li>Splunk Enterprise + Universal Forwarder</li>
+      <li>Active Directory, GPO, DNS, SMB</li>
+    </ul>
+
+    <h2>📄 Download Full Report</h2>
+    <a class="btn" href="SIEMCITY-AD-Splunk-Report.pdf" target="_blank">Download PDF Report</a>
+  </section>
+
+  <footer>
+    <p>© 2025 SIEMCITY. Hosted on <a href="https://github.com/yourusername/your-repo">GitHub Pages</a>.</p>
+  </footer>
+</body>
+</html>
