@@ -56,16 +56,18 @@
 </head>
 <body>
 <audio autoplay loop>
-    <source src="Hackers.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <source src="Hackers.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Add the mute/unmute button here -->
+<button id="muteBtn" class="btn" style="position: absolute; top: 20px; right: 20px;">🔇 Mute</button>
   <div class="terminal">
     <div id="typed-text"></div>
     <a href="Phase1.html" id="enterBtn" class="btn">Enter the SOC</a>
   </div>
-
-  <script>
-    const text = `
+<script>
+  const text = `
   Initializing secure connection to SIEMCITY...
   Decrypting briefing...
 
@@ -92,24 +94,34 @@
   Initiating system handshake...
   Connection stable.
   SOC access unlocked.
-    `;
+  `;
 
-    const typedText = document.getElementById('typed-text');
-    const enterBtn = document.getElementById('enterBtn');
+  const typedText = document.getElementById('typed-text');
+  const enterBtn = document.getElementById('enterBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const audio = document.querySelector('audio');
 
-    let i = 0;
+  let i = 0;
 
-    function typeWriter() {
-      if (i < text.length) {
-        typedText.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 35);
-      } else {
-        enterBtn.classList.add('show');
-      }
+  function typeWriter() {
+    if (i < text.length) {
+      typedText.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 35);
+    } else {
+      enterBtn.classList.add('show');
+      muteBtn.classList.add('show');
     }
+  }
 
-    window.onload = typeWriter;
-  </script>
-</body>
+  window.onload = () => {
+    typeWriter();
+  };
+
+  muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? '🔊 Unmute' : '🔇 Mute';
+  });
+</script>
+ </body>
 </html>
