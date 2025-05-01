@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIEMCITY | SOC-SIMULATION LAB - Phase 2</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #33ff33;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: #111;
+      border-bottom: 2px solid #33ff33;
+    }
+    section {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2 {
+      color: #66ff66;
+    }
+    .screenshot {
+      background-color: #111;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #33ff33;
+    }
+    .btn {
+      background-color: #33ff33;
+      color: #0d0d0d;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #111;
+      color: #33ff33;
+      text-align: center;
+      padding: 10px;
+      border-top: 2px solid #33ff33;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a {
+      color: #33ff33;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .screenshot img {
+      max-width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🛡️SOC-SIMULATION LAB</h1>
+    <p>Phase 2 – ArchLinux + Essential Tools | <a href="phase1.html" class="btn">Go to Phase 1</a></p>
+  </header>
+
+  <section>
+    <h2>🔍 Project Summary</h2>
+    <p>
+      Phase 2 expands the SOC lab by adding ArchLinuxSOC (ArchAttack), a Linux-based system for security analysis. This phase involves installing Arch Linux, configuring essential cybersecurity tools, and integrating the system with the soclab.local domain using Samba and Kerberos.
+    </p>
+
+    <h2>📊 Lab Architecture</h2>
+    <img src="images/network-diagram-phase2.png" alt="Lab Network Diagram - Phase 2" style="width:100%; max-width:800px;" />
+
+    <h2>📸 Screenshots</h2>
+    <div class="screenshot">
+      <p><strong>Figure 18:</strong> Arch Linux Confirmation</p>
+      <img src="screenshots/Figure18.png" style="width:100%;" alt="Figure 18" />
+      <p>Arch Linux confirmation with `neofetch` showing the Arch logo and system specs on ArchLinuxSOC.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 19:</strong> Essential Tool Installations</p>
+      <img src="screenshots/Figure19.png" style="width:100%;" alt="Figure 19" />
+      <p>Installing essential cybersecurity tools via `pacman` on ArchLinuxSOC, including Nmap, Wireshark, Metasploit, John, Hydra, Gobuster, Bettercap, Ncat, and SQLMap.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 20:</strong> Domain Discovery and DNS Resolution</p>
+      <img src="screenshots/Figure20.png" style="width:100%;" alt="Figure 20" />
+      <p>Successful `ping` to 192.168.1.10 and `nslookup` resolving dc1.soclab.local, confirming DNS resolution on ArchLinuxSOC.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 21:</strong> Kerberos Authentication</p>
+      <img src="screenshots/Figure21.png" style="width:100%;" alt="Figure 21" />
+      <p>Successful `kinit` with Administrator@SOCLAB.LOCAL on ArchLinuxSOC, verifying Kerberos authentication.</p>
+    </div>
+    <div class="screenshot">
+      <p><strong>Figure 22:</strong> Domain Join</p>
+      <img src="screenshots/Figure22.png" style="width:100%;" alt="Figure 22" />
+      <p>Confirmation of ArchLinuxSOC domain join with `net ads testjoin` showing 'Join is OK'.</p>
+    </div>
+
+    <h2>🧰 Tools & Technologies</h2>
+    <ul>
+      <li>Arch Linux</li>
+      <li>Windows Server 2019</li>
+      <li>Windows 10</li>
+      <li>Ubuntu Server 22.04</li>
+      <li>Splunk Enterprise + Universal Forwarder</li>
+      <li>Active Directory, GPO, DNS, SMB</li>
+      <li>Samba, Kerberos (for domain integration)</li>
+      <li>Cybersecurity Tools: Nmap, Wireshark, Metasploit, John, Hydra, Gobuster, Bettercap, Ncat, SQLMap</li>
+    </ul>
+
+    <h2>📄 Download Full Report</h2>
+    <a class="btn" href="SIEMCITY-AD-Splunk-Report-Phase2.pdf" target="_blank">Download PDF Report</a>
+  </section>
+
+  <footer>
+    <p>© 2025 SIEMCITY. Hosted on <a href="https://github.com/yourusername/your-repo">GitHub Pages</a>. | <a href="phase1.html" class="btn">Go to Phase 1</a></p>
+  </footer>
+</body>
+</html>
