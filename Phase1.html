@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SIEMCITY | AD + Splunk Project</title>
+  <title>SIEMCITY | AD + Splunk Project - Phase 1</title>
   <style>
     body {
       background-color: #0d0d0d;
@@ -62,14 +62,14 @@
     .screenshot img {
       max-width: 100%;
       height: auto;
-      image-rendering: pixelated; /* For sharp edges */
+      image-rendering: pixelated;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>🛡️AD + Splunk Project</h1>
-    <p>Phase 1 – Employer Preview Portal</p>
+    <p>Phase 1 – Employer Preview Portal | <a href="phase2.html" class="btn">Go to Phase 2</a></p>
   </header>
 
   <section>
@@ -95,7 +95,7 @@
     <div class="screenshot">
       <p><strong>Figure 3:</strong> VirtualBox Configuration for SplunkServer</p>
       <img src="screenshots/Figure3.png" style="width:100%;" alt="Figure 3" />
-      <p>VirtualBox configuration for SplunkServer, showing 2 GB RAM, Bridged Adapter, and Internal Network (LabNetwork). The Bridged Adapter allows external access to the Splunk web interface.</p>
+      <p>VirtualBox configuration for SplunkServer, showing Bridged Adapter and Internal Network (LabNetwork). The Bridged Adapter allows external access to the Splunk web interface.</p>
     </div>
     <div class="screenshot">
       <p><strong>Figure 4:</strong> Installing Active Directory Domain Services (AD DS) on DC1</p>
@@ -153,13 +153,13 @@
       <p>Configuring Splunk on SplunkServer to receive logs from DC1 and Client1 on port 9997. This sets up the Splunk instance to collect forwarded logs.</p>
     </div>
     <div class="screenshot">
-      <p><strong>Figure 15a:</strong> Disk Space Usage on SplunkServer (Before)</p>
-      <img src="screenshots/Figure15a.png" style="width:100%;" alt="Figure 15a" />
+      <p><strong>Figure 15:</strong> Disk Space Usage on SplunkServer (Before)</p>
+      <img src="screenshots/Figure15a.png" style="width:100%;" alt="Figure 15" />
       <p>Disk space usage on SplunkServer before simulating a disk space issue, showing /dev/sda3 at 67% usage. This is the baseline disk usage.</p>
     </div>
     <div class="screenshot">
-      <p><strong>Figure 15b:</strong> Disk Space Usage on SplunkServer (After)</p>
-      <img src="screenshots/Figure15b.png" style="width:100%;" alt="Figure 15b" />
+      <p><strong>Figure 16:</strong> Disk Space Usage on SplunkServer (After)</p>
+      <img src="screenshots/Figure15b.png" style="width:100%;" alt="Figure 16" />
       <p>Disk space usage on SplunkServer after simulating a disk space issue, showing /dev/sda3 at 85% usage. This demonstrates a potential disk space concern.</p>
     </div>
     <div class="screenshot">
@@ -178,11 +178,11 @@
     </ul>
 
     <h2>📄 Download Full Report</h2>
-    <a class="btn" href="SIEMCITY-AD-Splunk-Report.pdf" target="_blank">Download PDF Report</a>
+    <a class="btn" href="SIEMCITY-AD-Splunk-Report-Phase1.pdf" target="_blank">Download PDF Report</a>
   </section>
 
   <footer>
-    <p>© 2025 SIEMCITY. Hosted on <a href="https://github.com/yourusername/your-repo">GitHub Pages</a>.</p>
+    <p>© 2025 SIEMCITY. Hosted on <a href="https://github.com/yourusername/your-repo">GitHub Pages</a>. | <a href="phase2.html" class="btn">Go to Phase 2</a></p>
   </footer>
 </body>
 </html>
